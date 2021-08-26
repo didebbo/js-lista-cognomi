@@ -1,0 +1,90 @@
+body {
+    display: flex;
+    justify-content: center;
+
+    .item {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 0.5em;
+        width: 50%;
+        padding: 2em 0;
+
+        > input {
+            text-align: center;
+            padding: 0.5em 0;
+            border: 0.2em solid black;
+            border-radius: 2em;
+            transition: border-color 0.2s;
+            font-weight: bold;
+
+            &:focus {
+                outline: none;
+                border: 0.2em solid green;
+                animation-name: flash;
+                animation-duration: 0.8s;
+                animation-delay: 0.2s;
+                animation-timing-function: linear;
+                animation-iteration-count: infinite;
+                animation-direction: alternate;
+            }
+        }
+
+        > button {
+            border-radius: 0.5em;
+            border: 0.2em solid green;
+            background-color: green;
+            color: white;
+            font-weight: bold;
+            padding: 0.5em 1em;
+            text-align: center;
+            margin-left: 1em;
+
+            &:active {
+                filter: brightness(90%);
+            }
+        }
+
+        > ul {
+            padding: 0.5em 0.1em;
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+            // border: 0.2em solid red;
+
+            > li {
+                font-weight: bold;
+                border: 0.1em solid black;
+                border-radius: 0.5em;
+                text-align: center;
+
+                &.selected {
+                    background-color: green;
+                    color: white;
+                    // font-weight: bold;
+                }
+            }
+        }
+
+        .position {
+            background-color: green;
+            color: white;
+            font-weight: bold;
+            padding: 1em;
+            border-radius: 0.5em;
+            text-align: center;
+        }
+    }
+}
+
+// Animations
+@keyframes flash {
+    0% {
+        border: 0.2em solid green;
+    }
+    50% {
+        border: 0.2em solid lightgreen;
+    }
+    100% {
+        border: 0.2em solid white;
+    }
+}
