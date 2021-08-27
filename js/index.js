@@ -18,11 +18,11 @@ const generateList = () => {
     lastNames.sort();
 
     ul.innerHTML = "";
-    for (let i = 0; i < lastNames.length; i++) {
+    lastNames.forEach((el, i) => {
         let li = document.createElement("li");
-        li.innerHTML = lastNames[i];
+        li.innerHTML = el;
         ul.appendChild(li);
-    }
+    });
 }
 
 send.onclick = () => {
