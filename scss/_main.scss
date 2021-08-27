@@ -5,11 +5,16 @@ body {
     .item {
         display: grid;
         grid-template-columns: 1fr auto;
+        grid-template-areas:
+        "input button"
+        "list ."
+        "position .";
         gap: 0.5em;
         width: 50%;
         padding: 2em 0;
 
         > input {
+            grid-area: input;
             text-align: center;
             padding: 0.5em 0;
             border: 0.2em solid black;
@@ -26,10 +31,20 @@ body {
                 animation-timing-function: linear;
                 animation-iteration-count: infinite;
                 animation-direction: alternate;
+
+                &::placeholder {
+                    opacity: 0;
+                }
+            }
+
+            &::placeholder {
+                color: black;
+                opacity: 0.2;
             }
         }
 
         > button {
+            grid-area: button;
             border-radius: 0.5em;
             border: 0.2em solid green;
             background-color: green;
@@ -45,6 +60,7 @@ body {
         }
 
         > ul {
+            grid-area: list;
             padding: 0.5em 0.1em;
             display: flex;
             flex-direction: column;
@@ -66,6 +82,7 @@ body {
         }
 
         .position {
+            grid-area: position;
             background-color: green;
             color: white;
             font-weight: bold;

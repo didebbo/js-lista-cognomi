@@ -6,6 +6,7 @@ let userLastName, position, output;
 // DOM
 const ul = document.getElementById("list");
 const cognome = document.getElementById("cognome");
+console.log(cognome);
 const send = document.getElementById("send");
 const dom_position = document.getElementById("position");
 dom_position.style.opacity = 0;
