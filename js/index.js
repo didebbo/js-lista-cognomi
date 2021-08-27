@@ -42,6 +42,10 @@ send.onclick = () => {
     ul.children[lastNames.indexOf(str)].classList.add("selected");
 }
 
+cognome.addEventListener("keypress", (e) => {
+    if (e.key == "Enter") send.onclick();
+})
+
 generateList();
 
 // Esercizio 1
