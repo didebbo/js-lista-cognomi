@@ -8,9 +8,17 @@ body { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pa
 
 body .item { display: -ms-grid; display: grid; -ms-grid-columns: 1fr auto; grid-template-columns: 1fr auto; grid-template-areas: "input button" "list ." "position ."; gap: 0.5em; width: 50%; padding: 2em 0; }
 
-body .item > input { -ms-grid-row: 1; -ms-grid-column: 1; grid-area: input; text-align: center; padding: 0.5em 0; border: 0.2em solid black; border-radius: 2em; -webkit-transition: border-color 0.2s; transition: border-color 0.2s; font-weight: bold; }
+body .item > input { -ms-grid-row: 1; -ms-grid-column: 1; grid-area: input; text-align: center; padding: 0.5em 0; border: 0.2em solid black; border-radius: 0.5em; font-weight: bold; background-color: white; background-image: -webkit-gradient(linear, left top, left bottom, from(white), color-stop(0%, #fafafa)); background-image: linear-gradient(to bottom, white 0% 50%, #fafafa 0% 100%); }
 
-body .item > input:focus { outline: none; border: 0.2em solid green; -webkit-animation-name: flash; animation-name: flash; -webkit-animation-duration: 0.8s; animation-duration: 0.8s; -webkit-animation-delay: 0.2s; animation-delay: 0.2s; -webkit-animation-timing-function: linear; animation-timing-function: linear; -webkit-animation-iteration-count: infinite; animation-iteration-count: infinite; -webkit-animation-direction: alternate; animation-direction: alternate; }
+body .item > input::-webkit-input-placeholder { color: black; opacity: 0.5; }
+
+body .item > input:-ms-input-placeholder { color: black; opacity: 0.5; }
+
+body .item > input::-ms-input-placeholder { color: black; opacity: 0.5; }
+
+body .item > input::placeholder { color: black; opacity: 0.5; }
+
+body .item > input:focus { outline: none; border: 0.2em solid green; -webkit-animation-name: flash; animation-name: flash; -webkit-animation-duration: 0.8s; animation-duration: 0.8s; -webkit-animation-timing-function: linear; animation-timing-function: linear; -webkit-animation-iteration-count: infinite; animation-iteration-count: infinite; -webkit-animation-direction: alternate; animation-direction: alternate; }
 
 body .item > input:focus::-webkit-input-placeholder { opacity: 0; }
 
@@ -20,30 +28,20 @@ body .item > input:focus::-ms-input-placeholder { opacity: 0; }
 
 body .item > input:focus::placeholder { opacity: 0; }
 
-body .item > input::-webkit-input-placeholder { color: black; opacity: 0.2; }
-
-body .item > input:-ms-input-placeholder { color: black; opacity: 0.2; }
-
-body .item > input::-ms-input-placeholder { color: black; opacity: 0.2; }
-
-body .item > input::placeholder { color: black; opacity: 0.2; }
-
-body .item > button { -ms-grid-row: 1; -ms-grid-column: 2; grid-area: button; border-radius: 0.5em; border: 0.2em solid green; background-color: green; color: white; font-weight: bold; padding: 0.5em 1em; text-align: center; margin-left: 1em; }
+body .item > button { -ms-grid-row: 1; -ms-grid-column: 2; grid-area: button; border-radius: 0.5em; border: 0.2em solid black; background-color: green; background-image: -webkit-gradient(linear, left top, left bottom, from(#009900), color-stop(0%, green)); background-image: linear-gradient(to bottom, #009900 0% 50%, green 0% 100%); color: white; font-weight: bold; padding: 0.5em 1em; text-align: center; margin-left: 1em; }
 
 body .item > button:active { -webkit-filter: brightness(90%); filter: brightness(90%); }
 
-body .item > ul { -ms-grid-row: 2; -ms-grid-column: 1; grid-area: list; padding: 0.5em 0.1em; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; gap: 1em; }
+body .item > ul { -ms-grid-row: 2; -ms-grid-column: 1; grid-area: list; padding: 0.5em 0; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; gap: 1em; }
 
-body .item > ul > li { font-weight: bold; border: 0.1em solid black; border-radius: 0.5em; text-align: center; }
+body .item > ul > li { padding: 0.2em; font-weight: bold; border: 0.2em solid black; border-radius: 0.5em; text-align: center; background-color: white; background-image: -webkit-gradient(linear, left top, left bottom, from(#f2f2f2), color-stop(0%, #d9d9d9)); background-image: linear-gradient(to bottom, #f2f2f2 0% 50%, #d9d9d9 0% 100%); }
 
-body .item > ul > li.selected { background-color: green; color: white; }
+body .item > ul > li.selected { background-color: green; background-image: -webkit-gradient(linear, left top, left bottom, from(#009900), color-stop(0%, green)); background-image: linear-gradient(to bottom, #009900 0% 50%, green 0% 100%); color: white; }
 
-body .item .position { -ms-grid-row: 3; -ms-grid-column: 1; grid-area: position; background-color: green; color: white; font-weight: bold; padding: 1em; border-radius: 0.5em; text-align: center; }
+body .item .position { -ms-grid-row: 3; -ms-grid-column: 1; grid-area: position; background-color: green; background-image: -webkit-gradient(linear, left top, left bottom, from(#009900), color-stop(0%, green)); background-image: linear-gradient(to bottom, #009900 0% 50%, green 0% 100%); color: white; font-weight: bold; padding: 0.5em; border-radius: 0.5em; border: 0.2em solid black; text-align: center; }
 
 @-webkit-keyframes flash { 0% { border: 0.2em solid green; }
-  50% { border: 0.2em solid lightgreen; }
   100% { border: 0.2em solid white; } }
 
 @keyframes flash { 0% { border: 0.2em solid green; }
-  50% { border: 0.2em solid lightgreen; }
   100% { border: 0.2em solid white; } }

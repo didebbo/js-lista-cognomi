@@ -18,36 +18,38 @@ body {
             text-align: center;
             padding: 0.5em 0;
             border: 0.2em solid black;
-            border-radius: 2em;
-            transition: border-color 0.2s;
+            border-radius: 0.5em;
             font-weight: bold;
+            background-color: white;
+            background-image: linear-gradient(to bottom, hsl(0, 0%, 100%) 0% 50%, hsl(0, 0%, 98%) 0% 100%);
+
+            &::placeholder {
+                color: black;
+                opacity: 0.5;
+            }
 
             &:focus {
                 outline: none;
-                border: 0.2em solid green;
+                border: 0.2em solid hsl(120, 100%, 25%);
                 animation-name: flash;
                 animation-duration: 0.8s;
-                animation-delay: 0.2s;
                 animation-timing-function: linear;
                 animation-iteration-count: infinite;
                 animation-direction: alternate;
 
+
                 &::placeholder {
                     opacity: 0;
                 }
-            }
-
-            &::placeholder {
-                color: black;
-                opacity: 0.2;
             }
         }
 
         > button {
             grid-area: button;
             border-radius: 0.5em;
-            border: 0.2em solid green;
+            border: 0.2em solid black;
             background-color: green;
+            background-image: linear-gradient(to bottom, hsl(120, 100%, 30%) 0% 50%, hsl(120, 100%, 25%) 0% 100%);
             color: white;
             font-weight: bold;
             padding: 0.5em 1em;
@@ -61,22 +63,24 @@ body {
 
         > ul {
             grid-area: list;
-            padding: 0.5em 0.1em;
+            padding: 0.5em 0;
             display: flex;
             flex-direction: column;
             gap: 1em;
-            // border: 0.2em solid red;
 
             > li {
+                padding: 0.2em;
                 font-weight: bold;
-                border: 0.1em solid black;
+                border: 0.2em solid black;
                 border-radius: 0.5em;
                 text-align: center;
+                background-color: white;
+                background-image: linear-gradient(to bottom, hsl(0, 0%, 95%) 0% 50%, hsl(0, 0%, 85%) 0% 100%);
 
                 &.selected {
                     background-color: green;
+                    background-image: linear-gradient(to bottom, hsl(120, 100%, 30%) 0% 50%, hsl(120, 100%, 25%) 0% 100%);
                     color: white;
-                    // font-weight: bold;
                 }
             }
         }
@@ -84,10 +88,12 @@ body {
         .position {
             grid-area: position;
             background-color: green;
+            background-image: linear-gradient(to bottom, hsl(120, 100%, 30%) 0% 50%, hsl(120, 100%, 25%) 0% 100%);
             color: white;
             font-weight: bold;
-            padding: 1em;
+            padding: 0.5em;
             border-radius: 0.5em;
+            border: 0.2em solid black;
             text-align: center;
         }
     }
@@ -96,12 +102,9 @@ body {
 // Animations
 @keyframes flash {
     0% {
-        border: 0.2em solid green;
-    }
-    50% {
-        border: 0.2em solid lightgreen;
+        border: 0.2em solid hsl(120, 100%, 25%);
     }
     100% {
-        border: 0.2em solid white;
+        border: 0.2em solid hsl(120, 100%, 100%);
     }
 }
