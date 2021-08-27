@@ -6,12 +6,18 @@ let userLastName, position, output;
 // DOM
 const ul = document.getElementById("list");
 const cognome = document.getElementById("cognome");
-console.log(cognome);
 const send = document.getElementById("send");
 const dom_position = document.getElementById("position");
 dom_position.style.opacity = 0;
 
-const sortList = () => {
+const generateList = () => {
+
+    lastNames.forEach((el, i, arr) => {
+        arr[i] = el.toLowerCase();
+    });
+    lastNames.sort();
+
+    ul.innerHTML = "";
     for (let i = 0; i < lastNames.length; i++) {
         let li = document.createElement("li");
         li.innerHTML = lastNames[i];
@@ -20,27 +26,25 @@ const sortList = () => {
 }
 
 send.onclick = () => {
-    let str = cognome.value;
+    let str = cognome.value.toLowerCase();
     if (!isNaN(str) || str == 0) {
         cognome.value = "";
         return;
     }
-
-    str = str.toLowerCase();
-    str = str[0].toUpperCase() + str.slice(1);
     lastNames.push(str);
-    lastNames.sort();
-    ul.innerHTML = "";
-    cognome.value = "";
-    sortList();
-    if (dom_position.style.opacity == 0) dom_position.style.opacity = 1;
-    dom_position.innerHTML = "Sei alla posizione: " + parseInt((lastNames.indexOf(str) + 1));
-    ul.children[lastNames.indexOf(str)].classList.add("selected");
 
+    cognome.value = "";
+    generateList();
+
+    if (dom_position.style.opacity == 0) dom_position.style.opacity = 1;
+    console.log();
+    dom_position.innerHTML = "Sei alla posizione: " + parseInt(lastNames.indexOf(str) + 1);
+    ul.children[lastNames.indexOf(str)].classList.add("selected");
 }
 
-sortList();
+generateList();
 
+// Esercizio 1
 // Chiedo cognome all'utente e lo formatto nel seguente modo: "Cognome";
 // do userLastName = prompt("Inserisci aaa il tuo cognome:").toLowerCase();
 // while (!isNaN(userLastName) || userLastName.length == 0)
