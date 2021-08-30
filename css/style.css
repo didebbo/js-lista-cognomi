@@ -6,6 +6,8 @@ img { width: 100%; height: 100%; -o-object-fit: cover; object-fit: cover; -o-obj
 
 body { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; }
 
+body::-webkit-scrollbar { display: none; }
+
 body .item { display: -ms-grid; display: grid; -ms-grid-columns: 1fr auto; grid-template-columns: 1fr auto; grid-template-areas: "input button" "list ." "position ."; gap: 0.5em; width: 50%; padding: 2em 0; }
 
 body .item > input { -ms-grid-row: 1; -ms-grid-column: 1; grid-area: input; text-align: center; padding: 0.5em 0; border: 0.2em solid black; border-radius: 0.5em; font-weight: bold; background-color: white; background-image: -webkit-gradient(linear, left top, left bottom, from(white), color-stop(0%, #fafafa)); background-image: linear-gradient(to bottom, white 0% 50%, #fafafa 0% 100%); }
