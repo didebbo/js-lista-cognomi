@@ -75,13 +75,18 @@ body {
                 border: 0.2em solid black;
                 border-radius: 0.5em;
                 text-align: center;
-                background-color: white;
-                background-image: linear-gradient(to bottom, hsl(0, 0%, 95%) 0% 50%, hsl(0, 0%, 85%) 0% 100%);
+                background-color: green;
+                background-image: linear-gradient(to bottom, hsl(120, 100%, 30%) 0% 50%, hsl(120, 100%, 25%) 0% 100%);
+                color: white;
+                filter: grayscale(1);
 
                 &.selected {
-                    background-color: green;
-                    background-image: linear-gradient(to bottom, hsl(120, 100%, 30%) 0% 50%, hsl(120, 100%, 25%) 0% 100%);
-                    color: white;
+                    filter: grayscale(0);
+                    animation-name: fade-out;
+                    animation-delay: 1s;
+                    animation-duration: 1s;
+                    animation-timing-function: linear;
+                    animation-fill-mode: forwards;
                 }
             }
         }
@@ -107,5 +112,14 @@ body {
     }
     100% {
         border: 0.2em solid hsl(120, 100%, 100%);
+    }
+}
+
+@keyframes fade-out {
+    0% {
+        filter: grayscale(0);
+    }
+    100% {
+        filter: grayscale(1);
     }
 }

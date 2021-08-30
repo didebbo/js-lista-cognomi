@@ -37,9 +37,10 @@ send.onclick = () => {
     generateList();
 
     if (dom_position.style.opacity == 0) dom_position.style.opacity = 1;
-    console.log();
     dom_position.innerHTML = "Sei alla posizione: " + parseInt(lastNames.indexOf(str) + 1);
-    ul.children[lastNames.indexOf(str)].classList.add("selected");
+    let ul_li = ul.children[lastNames.indexOf(str)];
+    ul_li.classList.add("selected");
+
 }
 
 cognome.addEventListener("keypress", (e) => {
